@@ -8,64 +8,124 @@ class Route extends Bootstrap {
 
 	protected function initRoutes() {
 
-		$routes['home'] = array(
+		$routes['index'] = array(
 			'route' => '/',
 			'controller' => 'indexController',
 			'action' => 'index'
 		);
 
-		$routes['inscreverse'] = array(
-			'route' => '/inscreverse',
+		$routes['sign_up'] = array(
+			'route' => '/sign_up',
 			'controller' => 'indexController',
-			'action' => 'inscreverse'
+			'action' => 'signUp'
 		);
 
-		$routes['registrar'] = array(
-			'route' => '/registrar',
+		$routes['register'] = array(
+			'route' => '/register',
 			'controller' => 'indexController',
-			'action' => 'registrar'
+			'action' => 'register'
 		);
 
-		$routes['autenticar'] = array(
-			'route' => '/autenticar',
+		$routes['login'] = array(
+			'route' => '/login',
+			'controller' => 'indexController',
+			'action' => 'login'
+		);
+
+		$routes['auth_cliente'] = array(
+			'route' => '/auth_cliente',
 			'controller' => 'AuthController',
-			'action' => 'autenticar'
+			'action' => 'authCliente'
 		);
 
-		$routes['timeline'] = array(
-			'route' => '/timeline',
-			'controller' => 'AppController',
-			'action' => 'timeline'
-		);
-
-		$routes['sair'] = array(
-			'route' => '/sair',
+		$routes['auth_funcionario'] = array(
+			'route' => '/auth_funcionario',
 			'controller' => 'AuthController',
-			'action' => 'sair'
+			'action' => 'authFuncionario'
+		);
+	
+		$routes['home'] = array(
+			'route' => '/home',
+			'controller' => 'AppController',
+			'action' => 'home'
 		);
 
-		$routes['tweet'] = array(
-			'route' => '/tweet',
+		$routes['perfil'] = array(
+			'route' => '/perfil',
 			'controller' => 'AppController',
-			'action' => 'tweet'
+			'action' => 'perfil'
 		);
 
-		$routes['quem_seguir'] = array(
-			'route' => '/quem_seguir',
+		$routes['about'] = array(
+			'route' => '/about',
 			'controller' => 'AppController',
-			'action' => 'quemSeguir'
+			'action' => 'about'
 		);
 
-		$routes['acao'] = array(
-			'route' => '/acao',
+		$routes['page'] = array(
+			'route' => '/page',
 			'controller' => 'AppController',
-			'action' => 'acao'
+			'action' => 'page'
 		);
 
-		$routes['apagar_tweet'] = array(
-			'route' => '/apagar_tweet',
+		$routes['out'] = array(
+			'route' => '/out',
+			'controller' => 'AuthController',
+			'action' => 'out'
+		);
+
+		$routes['register_movie'] = array(
+			'route' => '/register_movie',
 			'controller' => 'AppController',
-			'action' => 'apagar_tweet'
+			'action' => 'registerMovie'
+		);
+
+		$routes['register_func'] = array(
+			'route' => '/register_func',
+			'controller' => 'AppController',
+			'action' => 'registerFunc'
+		);
+
+		$routes['insert_func'] = array(
+			'route' => '/insert_func',
+			'controller' => 'AppController',
+			'action' => 'insertFunc'
+		);
+
+		$routes['movie'] = array(
+			'route' => '/movie',
+			'controller' => 'AppController',
+			'action' => 'pageMovie'
+		);
+
+		$routes['insert_movie'] = array(
+			'route' => '/insert_movie',
+			'controller' => 'AppController',
+			'action' => 'insertMovie'
+		);
+
+		$routes['edit_movie'] = array(
+			'route' => '/edit_movie',
+			'controller' => 'AppController',
+			'action' => 'editMovie'
+		);
+
+		$routes['edit_movie_data'] = array(
+			'route' => '/edit_movie_data',
+			'controller' => 'AppController',
+			'action' => 'editMovieData'
+		);
+
+		$routes['search_movie'] = array(
+			'route' => '/search_movie',
+			'controller' => 'AppController',
+			'action' => 'SearchMovie'
+		);
+
+		$routes['thanks'] = array(
+			'route' => '/thanks',
+			'controller' => 'AppController',
+			'action' => 'thanks'
 		);
 
 		$this->setRoutes($routes);

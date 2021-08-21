@@ -1,0 +1,54 @@
+<main class="container mt-5 text-center">
+        <header class="row mt-5 border-0">
+            <div class="col mt-5">
+                <h1 class="titulo">Login</h1>
+            </div>
+        </header>
+
+        <section class="row">
+            <div class="col-md-5">
+                <img class="w-100 p-hidden" src="img/Password_Monochromatic.png" alt="imagem de login">
+            </div>
+            
+            <div class="col-md-7 align-self-center">
+                <form id="form_login" method="POST">
+                    <input type="email" class="entrada" name="email_login" placeholder="email">
+
+                    <input type="password" class="entrada mt-3" name="senha_login" placeholder="senha">
+
+                    <small>Você é?</small>
+                    <label class="text-small" for="cliente">Cliente</label>
+                    <input type="radio" onchange="tabela('cliente')" name="tabela_login" id="cliente" value="cliente">
+                    <label class="text-small" for="funcionario">Funcionário</label>
+                    <input type="radio" onchange="tabela('funcionario')"  name="tabela_login" value="funcionario" id="funcionario"><br>
+                    
+                    <?php if(isset($_GET['login']) && $_GET['login'] == 'erro') { ?>
+                      <p class="textS">Email ou senha inválidos</p>
+                    <?php } ?>
+                    <button class="btn botao mt-3" type="submit">Login</button>
+                </form>
+            </div>
+        </section>
+     
+        
+    </main>
+          
+    <script>
+          function tabela(valor){
+              let form = document.getElementById('form_login')
+              
+              if(valor == 'cliente'){
+
+                form.setAttribute('action','/auth_cliente')
+
+              }else if(valor == 'funcionario'){
+
+                form.setAttribute('action','/auth_funcionario')
+    
+              }
+
+          }
+    </script>
+
+    
+  

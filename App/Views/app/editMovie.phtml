@@ -1,0 +1,57 @@
+<main class="container">
+        <section class="row">
+            <div class="col">
+                <h3 class="titulo">Editando Informações</h3>
+            </div>
+        </section>
+
+        <section class="row">
+            <div class="col-md-5">
+                <img class="w-100 p-hidden" src="img/Settings_Monochromatic.png" alt="foto de arquivos e pastas">
+            </div>
+
+            <div class="col-md-7 align-self-center text-center">
+                <form enctype="multipart/form-data" action="/edit_movie_data?id=<?= $_GET['id'] ?>" method="POST">
+                    <div class="row">
+                        <div class="col-12">
+                            <input class="entrada w-50" type="text" placeholder="nome do filme:" name="nome_edit">
+                        </div>
+
+                         <div class="col-12  mt-3">
+                            <input class="entrada w-50" type="text" placeholder="Diretor:" name="diretor_edit">
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <small>Selecione o lançamento do filme</small>
+                            <input id="lanc_filme" type="date" name="lanc_edit" class="entrada w-50">
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <input type="text" name="genero_edit" placeholder="genêro(s):" class="entrada w-50">
+                        </div>
+
+                        <div class="col-12 ">
+                            <textarea placeholder="sinopse:" name="sinopse_edit" class="entrada w-50"></textarea>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <label class="entrada w-50" for="poster">Selecione o arquivo do poster aqui</label>
+                            <input id="poster" type="file" name="poster_edit" class="d-none">
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <label class="entrada w-50" for="filme">Selecione o arquivo do filme aqui</label>
+                            <input id="filme" type="file" name="filme_edit" class="d-none">
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <button class="btn botao" type="submit">Inserir</button>
+                        </div>
+                    </div>
+                </form>
+                <?php if(isset($_GET['insert']) && $_GET['insert'] == 1 ) { ?>
+                    <p class="textS">Filme registrado com sucesso!</p>
+                <?php } ?>
+            </div>
+        </section>        
+</main>

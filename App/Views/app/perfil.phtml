@@ -1,0 +1,51 @@
+<main class="container">
+        <section class="row mt-1">
+            <div class="col">
+                <h3 class="titulo">Perfil</h3>
+            </div>
+        </section>
+
+        <section class="row">
+                <div class="col-md-4">
+                    <img class="w-100 p-hidden" src="img/Profiling_Outline.png" alt="foto de avatar generica">
+                </div>
+
+                <div class="col-md-8 align-self-center">
+                    <p class="entrada  textS"> <span>Nome:</span> <?= $this->view->infoPerfil['nome'] ?> </p>
+
+                    <p class="entrada  textS"><span>Email:</span><?= $this->view->infoPerfil['email'] ?></p>
+
+                    <p class="entrada  textS"><span>Cpf:</span><?= $this->view->infoPerfil['cpf'] ?></p>
+
+                    <?php if(isset($_SESSION['rg']) && isset($_SESSION['telefone']))  {?>
+
+                        <p class="entrada  textS"><span>Rg:</span><?= $_SESSION['rg'] ?></p>
+
+                        <p class="entrada  textS"><span>Telefone:</span><?= $_SESSION['telefone'] ?></p>
+
+                    <?php }?>
+
+                    <p class="entrada  textS"><span>Data de nascimento:</span><?= $this->view->infoPerfil['dataNascimento'] ?></p>
+                </div>
+        </section>
+    
+    <?php if(!$_SESSION['funcionario']) { ?>
+        <section class="row">
+            <div class="col">
+                <h3 class="titulo">Filmes Baixados</h3>
+            </div>
+        </section>
+        
+        <section class="row mt-3">
+        <?php foreach($this->view->movieDownloaded as $movie) { ?>
+                <div class="col-md-4  mt-2">
+                    <div class="text-center">
+                        <img class="img-home pt-2" src="<?= $movie['poster'] ?>" alt="poster">
+                        <a class="textS link-home" href="/movie?id=<?= $movie['id'] ?>"><?= $movie['nome'] ?></a>
+                    </div>  
+                </div>
+            <?php } ?>
+        </section>
+       
+    <?php } ?>
+    </main>

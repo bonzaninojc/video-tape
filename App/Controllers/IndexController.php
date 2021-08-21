@@ -15,45 +15,48 @@ class IndexController extends Action {
 		$this->render('index');
 	}
 
-	public function inscreverse(){
-
-		$this->view->usuario = array(
-			'nome' => "",
-			'email' => "",
-			'senha' => "",
-		);
-
+	public function signUp(){
 		$this->view->erroCadastro = false;
 
-		$this->render('inscreverse');
+		$this->view->dadosCadastrados = false;
+
+		$this->render('sign_up');
 	}
 
-	public function registrar(){
+	public function register(){
 
-		$usuario = Container::getModel('Usuario');
+		$cliente = Container::getModel('Cliente');
 
-		$usuario->__set('nome',$_POST['nome']);
-		$usuario->__set('email',$_POST['email']);
-		$usuario->__set('senha',md5($_POST['senha']));
+		$cliente->__set('nome',$_POST['nome_register']);
+		$cliente->__set('email',$_POST['email_register']);
+		$cliente->__set('senha',$_POST['senha_register']);
+		$cliente->__set('cpf',$_POST['cpf_register']);
+		$cliente->__set('dataNascimento',$_POST['date_register']);
 
-		if($usuario->validarCadastro() && count($usuario->getUserEmail())== 0){
+		if($cliente->validarCadastro()){
 			
-			$usuario->salvar();
-			$this->render('cadastro');
+			if(!$cliente->getUserEmailOrCpf()) {
+				
+				$cliente->salvar();
+				header('Location: /');
+
+			}else{
+
+				$this->view->dadosCadastrados = true;
+				$this->render('sign_up');
+			}
 
 		}else{
 
 			$this->view->erroCadastro = true;
-
-			$this->view->usuario = array(
-				'nome' => $_POST['nome'],
-				'email' => $_POST['email'],
-				'senha' => $_POST['senha'],
-			);
-
-			$this->render('inscreverse');
+			$this->render('sign_up');
 		}
 		
+	}
+
+	public function login(){
+		
+		$this->render('login');
 	}
 
 }
