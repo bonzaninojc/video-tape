@@ -70,7 +70,7 @@ class AppController extends Action{
         $this->validaAutenticar();
 
         $filme = Container::getModel('Filme');
-        $filme->__set('genero',$_GET['page']);
+        $filme->__set('genero',$_GET['search']);
 
         $this->view->infoPage = $filme->getPage();
 
